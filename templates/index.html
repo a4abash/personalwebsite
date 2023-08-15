@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+{% extends 'base/master.html'%}
+{% load static %}
+
+{% block content %}
+<section class="s1">
+    <div class="main-container">
+        <div class="greeting-wrapper">
+            <h1>Hi, I'm Abash Shah</h1>
+            <h3>Python/Django Developer</h3>
+        </div>
+
+        <div class="intro-wrapper">
+
+            {% include 'navbar.html' %}
+
+            <div class="left-column">
+                <img id="profile_pic" src="{% static 'images/abash.jpg' %}">
+
+
+                <h5 style="text-align: center;line-height: 1.5;">How big will you dream if you</h5>
+                <h5 style="text-align: center;line-height: 1.5;"> know you won't fail</h5>
+
+                <!-- <div id="theme-optins-wrapper">
+                    <div data-mode="blue" id="blue-mode" class="theme-dot"></div>
+                    <div data-mode="light" id="light-mode" class="theme-dot"></div>
+                    <div data-mode="purple" id="purple-mode" class="theme-dot"></div>
+                    <div data-mode="green" id="green-mode" class="theme-dot"></div>
+                </div> -->
+
+            </div>
+
+            <div class="right-column">
+                <div id="preview-shadow">
+                    <div id="preview">
+                        <div id="corner-tl" class="corner"></div>
+                        <div id="corner-tr" class="corner"></div>
+                        <h3>What I Do</h3>
+                        <p>I am Student with interest in Programming,
+                            I enjoy Coding and love Web development using Django.
+                        </p>
+                        <div id="corner-bl" class="corner"></div>
+                        <div id="corner-br" class="corner"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br>
+</section>
+
+
+<section class="s2">
+    <div class="main-container">
+
+        <div class="about-wrapper">
+
+            <!--About me and Skills-->
+            <div class="about-me">
+                <h4>More About Me</h4>
+
+                <p>I am Bachelors Graduate Student with Computer Science Degree.</p>
+
+                <p>Python is my favourite Programming language and I have a deep interest in Web development and Digital
+                    Marketing</p>
+
+                <hr>
+
+                <h4>TOP EXPERTISE</h4>
+
+                <p>Python/Django Developer with main foucs on Web Development:
+                    <a target="_blank" href="{% static 'files/CV_abash.pdf' %}">Download CV</a>
+                </p>
+
+                <div id="skills">
+                    <ul style="line-height: 1.5;">
+                        <li>Python | Django </li>
+                        <li>Digital Marketing</li>
+                        <li>Project Management</li>
+                    </ul>
+
+                    <ul style="line-height: 1.5;">
+                        <li>Mysql | Postgress</li>
+                        <li>Wordpress</li>
+                        <li>Content Writing</li>
+                    </ul>
+                </div>
+            </div>
+            <!--Social links-->
+            <div class="social-links">
+                <img id="social_img" src="{% static 'images/3.jpg' %}">
+                <h3>Wanna connect</h3>
+                <ul class="col-md-12">
+
+                    <a href="https://facebook.com/a4abash" target="_blank">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle-thin fa-stack-2x"></i>
+                            <i class="fa fa-facebook fa-stack-1x"></i>
+                        </span>
+                    </a>
+
+                    <a href="https://github.com/a4abash" target="_blank">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle-thin fa-stack-2x"></i>
+                            <i class="fa fa-github fa-stack-1x"></i>
+                        </span>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/a4abash/" target="_blank">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle-thin fa-stack-2x"></i>
+                            <i class="fa fa-linkedin fa-stack-1x"></i>
+                        </span>
+                    </a>
+
+                    <a href="tel:+9779814307654" target="_blank">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle-thin fa-stack-2x"></i>
+                            <i class="fa fa-whatsapp fa-stack-1x"></i>
+                        </span>
+                    </a>
+
+                </ul>
+            </div>
+
+        </div>
+        <!--End of social links-->
+    </div>
+</section>
+<!--End of About me and Skills-->
+
+<!-- MyProjects section-->
+<section class="s1" id="my-projects">
+    <div class="main-container">
+
+        <h3 style="text-align: center;">Project Section</h3>
+
+        <div class="post-wrapper">
+            <div>
+                <div class="post">
+                    <a href="#"><img class="thumbnail" src="{{p.image.url}}"></a>
+                    <div class="post-preview">
+                        <a href="#">
+                            <h4 class="post-title" style="text-align: center;">title</h6>
+                        </a>
+                        <a href="#">
+                            <p class="post-intro">subtitle</p>
+                        </a>
+                        <h5 style="text-align: center;"><a href="#">View Project: </a></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#">
+            <p style="text-align:center;">View all Projects</p>
+        </a>
+    </div>
+    
+</section>
+<!-- End of MyProjects section-->
+
+<!--Blog-->
+<section class="s1" id="my-post">
+    <div class="main-container">
+        <h3 style="text-align: center;">Blog Section</h3>
+        <div class="post-wrapper">
+
+            <div>
+                <div class="post">
+                    <a href="#"><img class="thumbnail" src="static/images/abash.jpg"></a>
+                    <div class="post-preview">
+                        <a href="#">
+                            <h6 class="post-title">healdline</h6>
+                        </a>
+                        <a href="#">
+                            <p class="post-intro">sub_headline</p>
+                        </a>
+                        <h6 class="post-title">Tags:<a href="#">
+                                <span class="tag">tag</span>
+                            </a></h6>
+                        <h5 style="text-align: center;"><a href="#">View Post: </a></h5>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <a href="#">
+            <p style="text-align:center;">View all Posts</p>
+        </a>
+    </div>
+</section>
+<!--End of Blog section-->
+
+<!--Vlog-->
+<section class="s1" id="my-vlog">
+    <div class="main-container">
+        <h3 style="text-align: center;">Vlog Section</h3>
+        <div class="post-wrapper">
+
+            <iframe title="YouTube Video" width="330" height="315" src="https://youtube.com/embed/7HQNEKc6Rz4"
+                frameborder="0" allowfullscreen
+                allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="w-full h-full">
+            </iframe>
+
+            <iframe title="YouTube Video" width="330" height="315" src="https://youtube.com/embed/rv5wihhP0RE"
+                frameborder="0" allowfullscreen
+                allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="w-full h-full">
+            </iframe>
+
+            <iframe title="YouTube Video" width="330" height="315" src="https://www.youtube.com/embed/xsir3--DggI"
+                frameborder="0" allowfullscreen
+                allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="w-full h-full">
+            </iframe>
+        </div>
+        <a href="https://www.youtube.com/c/RipperAbash" target="_blank">
+
+            <p style="text-align:center;">View all Vlogs</p>
+        </a>
+    </div>
+</section>
+
+<!--End of Vlog section-->
+
+<!--Contact me section-->
+<section class="s2" id="contactme">
+    <div class="main-container">
+        <h3 style="text-align: center;">Drop Mail Here</h3>
+
+        <form action="#" method="POST" role="form" id="contact-form">
+            {% csrf_token %}
+            <label>Name</label>
+            <input class="input-field" type="text" name="name" placeholder="Your name" id="y1">
+
+            <label>Email</label>
+            <input class="input-field" type="text" name="email" placeholder="Your correct email" id="y1">
+
+            <label>Subject</label>
+            <input class="input-field" type="text" name="subject" placeholder="Sujbect" id="y1">
+
+            <label>Message</label>
+            <textarea class="input-field" name="message" placeholder="Detailed description about mail"
+                id="y1"></textarea>
+
+            <input id="submit-btn" type="submit" value="Send">
+        </form>
+    </div>
+</section>
+
+<!--End of Contact me section-->
+
+<script type="text/javascript">
+    let static = "{% static 'css' %}"
+</script>
+
+<script src="{% static 'css/script.js' %}" type="text/javascript" rel="script"></script>
+
+
+{% endblock %}

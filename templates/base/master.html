@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Abash Shah</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+
+    <meta name="description" content="Abash Shah is a self motivated guy with deep interest in Programming.
+        Python is one of his favourite Programming language. He loves Web Development with Django Framework.
+        For more information contact him !!!">
+    
+    <meta name="keywords" content="Web Developer,Web Designer,Django developer,Python,Android Developer,
+        Digital Marketing,SEO">
+    
+    <meta name="author" content="Abash Shah">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fontawesome.com/icons/facebook?f=brands&s=solid">
+    
+    <link href="{% static 'css/default.css'%}" rel="stylesheet" type="text/css" media="all" />
+    <!--        <link href="{% static 'css/green.css'%}" rel="stylesheet" type="text/css" media="all" />-->
+    <!--        <link href="{% static 'css/purple.css'%}" rel="stylesheet" type="text/css" media="all" />-->
+    <!--        <link href="{% static 'css/blue.css'%}" rel="stylesheet" type="text/css" media="all" />-->
+
+    <!--Stylesheet for fontawesome favicon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- Base + Vendors CSS -->
+    <link rel="stylesheet" href="{% static 'css/fonts/font-awesome/css/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fonts/entypo/css/entypo.css' %}">
+    <link id="theme-style" rel="stylesheet" type="text/css" href="#">
+
+</head>
+
+<body style="background-color: #15202B;">
+
+    <!--        {% include 'navbar.html' %}-->
+
+
+    {% block content %}
+    <!--content-->
+    {% endblock %}
+
+</body>
+
+</html>
