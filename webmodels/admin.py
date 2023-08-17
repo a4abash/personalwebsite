@@ -1,9 +1,7 @@
 from django.contrib import admin
-from .models import Project, Post, Projectimage, Tag
-
+from .models import Post,Tag,Project
 
 # Register your models here.
-admin.site.register(Project)
 admin.site.register(Post)
-admin.site.register(Projectimage)
 admin.site.register(Tag)
+admin.site.register(Project)

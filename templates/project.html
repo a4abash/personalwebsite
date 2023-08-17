@@ -1,0 +1,24 @@
+{% extends 'base/master.html'%}
+{% load static %}
+{% block content %}
+
+<div class="main-container">
+    <div class="row">
+        <h2 style="text-align: center;">{{project.title}}</h2>
+    </div>
+</div>
+<div class="thumbnail">
+    <a href="#" target="_blank">
+        <img src="{{project.image.url}}" alt="Image related to title" style="border-radius: 5%; width:40%; height:350px ;">
+    </a>
+    <br/>
+    <h5 style="text-align: center;">{{project.subtitle}}</h5>
+    <br/>
+    <div class="main-container">
+        <p>By:Abash</p>
+        <p>{{project.body|linebreaks}}</p>
+    </div>
+</div>
+
+
+{% endblock %}

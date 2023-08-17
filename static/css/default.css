@@ -13,7 +13,6 @@
     --previewShadow: #111921;
     --buttonColor:#2727d6;
 }
-
 html,body{
     padding: 0;
     margin:0;
@@ -302,7 +301,7 @@ h1{font-size: 56px;}
 }
 
 .thumbnail{
-    display: block;
+    display: block var(--mainColor);
     width: 100%;
     height: 180px;
     object-fit: cover;

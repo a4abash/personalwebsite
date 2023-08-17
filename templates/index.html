@@ -3,6 +3,7 @@
 {% load static %}
 
 {% block content %}
+<!--Intro section-->
 <section class="s1">
     <div class="main-container">
         <div class="greeting-wrapper">
@@ -49,14 +50,12 @@
     </div>
     <br>
 </section>
+<!--End of Intro section-->
 
-
+<!--About me and Skills-->
 <section class="s2">
     <div class="main-container">
-
         <div class="about-wrapper">
-
-            <!--About me and Skills-->
             <div class="about-me">
                 <h4>More About Me</h4>
 
@@ -123,9 +122,8 @@
 
                 </ul>
             </div>
-
+            <!--End of social links-->
         </div>
-        <!--End of social links-->
     </div>
 </section>
 <!--End of About me and Skills-->
@@ -133,31 +131,30 @@
 <!-- MyProjects section-->
 <section class="s1" id="my-projects">
     <div class="main-container">
-
         <h3 style="text-align: center;">Project Section</h3>
-
         <div class="post-wrapper">
+            {% for p in projects %}
             <div>
                 <div class="post">
-                    <a href="#"><img class="thumbnail" src="{{p.image.url}}"></a>
+                    <a href="{% url 'project' p.id %}"><img class="thumbnail" src="{{p.image.url}}"></a>
                     <div class="post-preview">
-                        <a href="#">
-                            <h4 class="post-title" style="text-align: center;">title</h6>
+                        <a href="{% url 'project' p.id %}">
+                            <h4 class="post-title" style="text-align: center;">{{p.title}}</h6>
                         </a>
-                        <a href="#">
-                            <p class="post-intro">subtitle</p>
+                        <a href="{% url 'project' p.id %}">
+                            <p class="post-intro">{{p.subtitle}}</p>
                         </a>
-                        <h5 style="text-align: center;"><a href="#">View Project: </a></h5>
+
+                        <h5 style="text-align: center;"><a href="{% url 'project' p.id %}">View Project: </a></h5>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
-
         <a href="#">
             <p style="text-align:center;">View all Projects</p>
         </a>
     </div>
-    
 </section>
 <!-- End of MyProjects section-->
 
@@ -166,25 +163,25 @@
     <div class="main-container">
         <h3 style="text-align: center;">Blog Section</h3>
         <div class="post-wrapper">
-
+            {% for p in posts %}
             <div>
                 <div class="post">
-                    <a href="#"><img class="thumbnail" src="static/images/abash.jpg"></a>
+                    <a href="#"><img class="thumbnail" src="{{p.thumbnail.url}}"></a>
                     <div class="post-preview">
                         <a href="#">
-                            <h6 class="post-title">healdline</h6>
+                            <h6 class="post-title">{{p.headline}}</h6>
                         </a>
                         <a href="#">
-                            <p class="post-intro">sub_headline</p>
+                            <p class="post-intro">{{p.sub_headline}}</p>
                         </a>
-                        <h6 class="post-title">Tags:<a href="#">
-                                <span class="tag">tag</span>
-                            </a></h6>
+                        <h6 class="post-title">Tags:<a href="#">Tag
+                                <span class="tag">tag/span>
+                                </a></h6>
                         <h5 style="text-align: center;"><a href="#">View Post: </a></h5>
                     </div>
                 </div>
             </div>
-
+            {% endfor %}
         </div>
         <a href="#">
             <p style="text-align:center;">View all Posts</p>
@@ -192,6 +189,8 @@
     </div>
 </section>
 <!--End of Blog section-->
+
+
 
 <!--Vlog-->
 <section class="s1" id="my-vlog">
