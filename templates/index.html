@@ -137,10 +137,11 @@
             <div>
                 <div class="post">
                     <a href="{% url 'project' p.id %}"><img class="thumbnail" src="{{p.image.url}}"></a>
-                    <div class="post-preview">
+                    <div class="post-preview" style="line-height: 1.8;">
                         <a href="{% url 'project' p.id %}">
                             <h4 class="post-title" style="text-align: center;">{{p.title}}</h6>
                         </a>
+
                         <a href="{% url 'project' p.id %}">
                             <p class="post-intro">{{p.subtitle}}</p>
                         </a>
@@ -151,7 +152,7 @@
             </div>
             {% endfor %}
         </div>
-        <a href="#">
+        <a href="{% url 'allprojects' %}">
             <p style="text-align:center;">View all Projects</p>
         </a>
     </div>
@@ -163,20 +164,27 @@
     <div class="main-container">
         <h3 style="text-align: center;">Blog Section</h3>
         <div class="post-wrapper">
-            {% for p in posts %}
+            {% for b,t in probook %}
             <div>
                 <div class="post">
-                    <a href="#"><img class="thumbnail" src="{{p.thumbnail.url}}"></a>
+                    <a href="#"><img class="thumbnail" src="{{b.image.url}}"></a>
                     <div class="post-preview">
                         <a href="#">
-                            <h6 class="post-title">{{p.headline}}</h6>
+                            <h6 class="post-title">{{b.headline}}</h6>
                         </a>
                         <a href="#">
-                            <p class="post-intro">{{p.sub_headline}}</p>
+                            <p class="post-intro">{{b.sub_headline}}</p>
                         </a>
-                        <h6 class="post-title">Tags:<a href="#">Tag
-                                <span class="tag">tag/span>
-                                </a></h6>
+                        <h6 class="post-title">Created:{{b.created}}<br>
+                            <a href="#">
+                                <h6 class="post-title">Tags:{{t.id}}<a href="#">
+                                        <span class="tag">
+                                            {% if b.tags_id == t.id %}
+                                            {{t.name}}
+                                            {% endif %}
+                                        </span>
+                                    </a>
+                                </h6>
                         <h5 style="text-align: center;"><a href="#">View Post: </a></h5>
                     </div>
                 </div>
@@ -197,6 +205,7 @@
     <div class="main-container">
         <h3 style="text-align: center;">Vlog Section</h3>
         <div class="post-wrapper">
+
 
             <iframe title="YouTube Video" width="330" height="315" src="https://youtube.com/embed/7HQNEKc6Rz4"
                 frameborder="0" allowfullscreen

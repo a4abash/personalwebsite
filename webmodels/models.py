@@ -8,16 +8,16 @@ class Tag(models.Model):
         return self.name
     
 
-class Post(models.Model):
+class Blog(models.Model):
     headline = models.CharField(max_length=200)
     sub_headline = models.CharField(max_length=200,null=True,blank=True)
     image = models.ImageField(null=True,blank=True,upload_to="images",default="images/blog.jpg")
     body = models.TextField(null=True,blank=True)
-    tags = models.ManyToManyField(Tag,null=True)
+    created = models.DateTimeField(auto_now=True)
+    tags = models.ForeignKey(Tag,on_delete=models.SET_NULL,blank=True,null=True)
 
     def __str__(self):
         return self.headline
-    
     
 class Project(models.Model):
     title = models.CharField(max_length=200)
