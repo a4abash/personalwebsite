@@ -14,7 +14,7 @@ class Blog(models.Model):
     image = models.ImageField(null=True,blank=True,upload_to="images",default="images/blog.jpg")
     body = models.TextField(null=True,blank=True)
     created = models.DateTimeField(auto_now=True)
-    tags = models.ForeignKey(Tag,on_delete=models.SET_NULL,blank=True,null=True)
+    tags = models.ManyToManyField(Tag,blank=True,null=True)
 
     def __str__(self):
         return self.headline

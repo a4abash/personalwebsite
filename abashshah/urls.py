@@ -25,4 +25,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('project/<int:x>', views.project, name='project'), #particular project
     path('allprojects', views.allprojects, name='allprojects'), #list of all projects
+    path('blog/<int:x>',views.blog, name ='blog'), #particular blog section
+    path('blogs_all', views.blogs_all, name='blogs_all'),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

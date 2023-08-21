@@ -1,22 +1,24 @@
 {% extends 'base/master.html'%}
 {% load static %}
 {% block content %}
+
 <div class="main-container">
     <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-            <h2 style="text-align: center;">
-                <h1>headline</h1>
-            </h2>
-        </div>
-        <div class="col-md-3"></div>
+        <h2 style="text-align: center;">{{blog.headline}}</h2>
     </div>
 </div>
 <div class="thumbnail">
     <a href="#" target="_blank">
-        <img src="#" alt="Image related to title" style="border-radius: 5%; width:40%">
-    </a><br/>
-    <h5 style="text-align: center;">sub_headline</h5><br/>
-    <p class="post-intro">body|linebreaks</p>
+        <img src="{{blog.image.url}}" alt="Image related to title" style="border-radius: 5%; width: 50%;height: auto;">
+    </a>
+    <br />
+    <h5 style="text-align: center;">{{blog.sub_headline}}</h5>
+    <br />
+    <div class="main-container">
+        <p>By:Abash</p>
+        <h5>{{blog.body|linebreaks}}</h5>
+    </div>
 </div>
+
+
 {% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base/master.html'%}
+{% load static %}
+{% block content %}
+
+<section class="s1">
+    <div class="main-container">
+        <h3 style="text-align: center;">All Blogs</h3>
+        <div class="post-wrapper">
+            {% for p in allblogs %}
+            <div>
+                <div class="post">
+                    <a href="{% url 'blog' p.id %}"><img class="thumbnail" src="{{p.image.url}}"></a>
+                    <div class="post-preview">
+                        <a href="{% url 'blog' p.id %}">
+                            <h4 class="post-title">{{p.headline}}</h4>
+                        </a>
+                        <a href="{% url 'blog' p.id %}">
+                            <p class="post-intro">{{p.sub_headline}}</p>
+                        </a>
+                        <a href="{% url 'blog' p.id %}"><h6>Tags:{% for tag in p.tags.all %}
+                                <span class="tag">{{tag}}</span>
+                                {% endfor %}</a></h6>
+                        </ul>
+                        <h5 style="text-align: center;"><a href="{% url 'blog' p.id %}">View Post</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>Opps No Posts Found !!</p>
+            {% endfor %}
+
+
+
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

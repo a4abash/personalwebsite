@@ -6,11 +6,11 @@ from webmodels.models import Project,Blog,Tag
 def home(request):
     blog = Blog.objects.filter()[0:3] # sort according to last come firt server lifo order
     project = Project.objects.filter()[0:3]
-    tag = Tag.objects.all()
-    alllist=zip(blog,tag) 
+    bblogs = Blog.objects.all()
     context = {
         'projects':project,
-        'probook':alllist,
+        'probook':blog,
+        'bblogs':bblogs,
     }
     return render(request, 'index.html',context)
 
@@ -32,8 +32,18 @@ def allprojects(request):
 
 # particular blog section
 def blog(request,x):
-    pass
+    blog = Blog.objects.get(id=x)
+    tags = Tag.objects.get(id=x)
+    context = {
+        'blog':blog,
+        'tags':tags
+    }
+    return render(request,'blog.html',context)
 
 # all blogs section
-def allblogs(requests):
-    pass
+def blogs_all(request):
+    blogs = Blog.objects.all()
+    context = {
+        'allblogs':blogs,
+    }
+    return render(request,'blogs_all.html',context)
