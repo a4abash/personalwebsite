@@ -15,7 +15,7 @@
                             <h3 class="post-intro" style="text-align: center">{{p.title}}</h3>
                         </a>
                         <a href="{% url 'project' p.id %}">
-                            <p class="post-title">{{p.subtitle}}</p>
+                            <p class="post-title">{{p.subtitle|truncatewords:5}}</p>
                         </a>
 
                         {% if user.is_authenticated %}

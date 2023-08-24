@@ -8,7 +8,7 @@
     <div class="main-container">
         <div class="greeting-wrapper">
             <h1>Hi, I'm Abash Shah</h1>
-            <h3>Python/Django Developer</h3>
+            <h3>Web Desinger/Developer</h3>
         </div>
 
         <div class="intro-wrapper">
@@ -38,7 +38,7 @@
                         <div id="corner-tr" class="corner"></div>
                         <h3>What I Do</h3>
                         <p>I am Student with interest in Programming,
-                            I enjoy Coding and love Web development using Django.
+                            I enjoy Coding and love Web development using Python Django.
                         </p>
                         <div id="corner-bl" class="corner"></div>
                         <div id="corner-br" class="corner"></div>
@@ -62,7 +62,7 @@
                 <p>I am Bachelors Graduate Student with Computer Science Degree.</p>
 
                 <p>Python is my favourite Programming language and I have a deep interest in Web development and Digital
-                    Marketing</p>
+                    Marketing.</p>
 
                 <hr>
 
@@ -143,7 +143,7 @@
                         </a>
 
                         <a href="{% url 'project' p.id %}">
-                            <p class="post-intro">{{p.subtitle}}</p>
+                            <p class="post-intro">{{p.subtitle|truncatewords:5}}</p>
                         </a>
 
                         <h5 style="text-align: center;"><a href="{% url 'project' p.id %}">View Project: </a></h5>
@@ -170,7 +170,7 @@
                     <a href="{% url 'blog' b.id %}"><img class="thumbnail" src="{{b.image.url}}">
                         <div class="post-preview">
                             <h6 class="post-title">{{b.headline}}</h6>
-                            <p class="post-intro">{{b.sub_headline}}</p>
+                            <p class="post-intro">{{b.sub_headline|truncatewords:5}}</p>
                                 <h6>Tags:{% for tag in b.tags.all %}
                                     <span class="tag">{{tag}}</span>
                                     {% endfor %}</a></h6>
@@ -189,14 +189,11 @@
 </section>
 <!--End of Blog section-->
 
-
-
 <!--Vlog-->
 <section class="s1" id="my-vlog">
     <div class="main-container">
         <h3 style="text-align: center;">Vlog Section</h3>
         <div class="post-wrapper">
-
 
             <iframe title="YouTube Video" width="330" height="315" src="https://youtube.com/embed/7HQNEKc6Rz4"
                 frameborder="0" allowfullscreen
@@ -222,7 +219,6 @@
         </a>
     </div>
 </section>
-
 <!--End of Vlog section-->
 
 <!--Contact me section-->
@@ -249,7 +245,6 @@
         </form>
     </div>
 </section>
-
 <!--End of Contact me section-->
 
 <script type="text/javascript">

@@ -15,7 +15,7 @@
                             <h4 class="post-title">{{p.headline}}</h4>
                         </a>
                         <a href="{% url 'blog' p.id %}">
-                            <p class="post-intro">{{p.sub_headline}}</p>
+                            <p class="post-intro">{{p.sub_headline|truncatewords:5}}</p>
                         </a>
                         <a href="{% url 'blog' p.id %}"><h6>Tags:{% for tag in p.tags.all %}
                                 <span class="tag">{{tag}}</span>

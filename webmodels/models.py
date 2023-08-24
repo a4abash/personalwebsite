@@ -7,7 +7,6 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
     
-
 class Blog(models.Model):
     headline = models.CharField(max_length=200)
     sub_headline = models.CharField(max_length=200,null=True,blank=True)
@@ -24,7 +23,6 @@ class Project(models.Model):
     image = models.ImageField(null=True,blank=True,upload_to="images",default="images/default.jpg")
     subtitle = models.CharField(max_length=200,default='By Abash')
     body = models.TextField(null=True,blank=True)
-    # prjimages = models.ManyToManyField(Projectimage,null=True)
 
     def __str__(self):
         return self.title
@@ -32,7 +30,7 @@ class Project(models.Model):
 #supports multiple image in the project
 class Projectimage(models.Model):
     image = models.ImageField(upload_to='project/')
-    projectImage = models.ForeignKey(Project,on_delete=models.SET_NULL,blank=True,null=True)
+    relatedProject = models.ForeignKey(Project,on_delete=models.SET_NULL,blank=True,null=True)
 
     def __str__(self):
-        return self.image
+        return self.relatedProject.title

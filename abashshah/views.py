@@ -47,3 +47,7 @@ def blogs_all(request):
         'allblogs':blogs,
     }
     return render(request,'blogs_all.html',context)
+
+#signin section
+def signin(request):
+    pass
