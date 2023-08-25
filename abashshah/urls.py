@@ -26,6 +26,10 @@ urlpatterns = [
     path('project/<int:x>', views.project, name='project'), #particular project
     path('allprojects', views.allprojects, name='allprojects'), #list of all projects
     path('blog/<int:x>',views.blog, name ='blog'), #particular blog section
-    path('blogs_all', views.blogs_all, name='blogs_all'),
-    path('signin', views.signin, name='signin'),
+    path('blogs_all', views.blogs_all, name='blogs_all'), #list of all Blogs
+    path('signin', views.signin, name='signin'), # login section
+    path('addBlog', views.addBlog, name='addBlog'), #Blog post adding section
+    path('addProject', views.addProject, name='addProject'), #Project adding section
+
+    path('signout', views.signout, name='signout'),  # url for logout function
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

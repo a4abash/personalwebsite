@@ -17,9 +17,12 @@
                         <a href="{% url 'blog' p.id %}">
                             <p class="post-intro">{{p.sub_headline|truncatewords:5}}</p>
                         </a>
-                        <a href="{% url 'blog' p.id %}"><h6>Tags:{% for tag in p.tags.all %}
+                        <a href="{% url 'blog' p.id %}">
+                            <h6>Tags:{% for tag in p.tags.all %}
                                 <span class="tag">{{tag}}</span>
-                                {% endfor %}</a></h6>
+                                {% endfor %}
+                                
+                        </a></h6>
                         </ul>
                         <h5 style="text-align: center;"><a href="{% url 'blog' p.id %}">View Post</h5>
                         </a>

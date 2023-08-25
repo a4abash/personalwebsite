@@ -1,0 +1,10 @@
+unable to add tags in blog section
+unable to add multiple images in project section
+
+
+Blog and Project edit delete part remaining
+
+For vlogs section website should automatically import recently uploaded videos
+
+
+Mail section remaining

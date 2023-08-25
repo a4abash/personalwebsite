@@ -9,7 +9,7 @@
             {% for p in allprojects %}
             <div>
                 <div class="post">
-                    <a href="{% url 'project' p.id %}"><img class="thumbnail" src="{{p.image.url}}"></a>
+                    <a href="{% url 'project' p.id %}"><img class="thumbnail" src="{{p.mainimage.url}}"></a>
                     <div class="post-preview">
                         <a href="{% url 'project' p.id %}">
                             <h3 class="post-intro" style="text-align: center">{{p.title}}</h3>

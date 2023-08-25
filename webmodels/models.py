@@ -19,8 +19,8 @@ class Blog(models.Model):
         return self.headline
     
 class Project(models.Model):
+    mainimage = models.ImageField(null=True,blank=True,upload_to="images",default="images/default.jpg")
     title = models.CharField(max_length=200)
-    image = models.ImageField(null=True,blank=True,upload_to="images",default="images/default.jpg")
     subtitle = models.CharField(max_length=200,default='By Abash')
     body = models.TextField(null=True,blank=True)
 

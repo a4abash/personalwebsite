@@ -12,6 +12,9 @@
         <li><a href="#my-post">Blogs</a></li>
         <li><a href="#my-vlog">Vlog</a></li>
         <li><a href="#contactme">Contact</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'signout' %}">Logout</a></li>
+        {% endif %}
        
     </ul>
 </div>

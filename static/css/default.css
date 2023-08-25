@@ -1,17 +1,17 @@
 :root{
-    --mainColor:#15202B;
-    --secondarColor:#192734;
+    --mainColor:#eaeaea;
+    --secondarColor:#fff;
 
-    --borderColor:#164D56;
+    --borderColor:#c1c1c1;
 
-    --mainText:#fff;
-    --secondaryText: #eeeeee;
+    --mainText:black;
+    --secondaryText:#4b5156;
 
-    --themeDotBorder: #ffffff;
+    --themeDotBorder: #24291e;
 
-    --previewBg:rgb(25, 39, 52, 0.8);
-    --previewShadow: #111921;
-    --buttonColor:#2727d6;
+    --previewBg:rgb(251, 249, 243, 0.8);
+    --previewShadow: #f0ead6;
+    --buttonColor:#000;
 }
 html,body{
     padding: 0;

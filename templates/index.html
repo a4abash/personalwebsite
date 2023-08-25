@@ -8,7 +8,7 @@
     <div class="main-container">
         <div class="greeting-wrapper">
             <h1>Hi, I'm Abash Shah</h1>
-            <h3>Web Desinger/Developer</h3>
+            <h3>Web Designer/Developer</h3>
         </div>
 
         <div class="intro-wrapper">
@@ -132,11 +132,19 @@
 <section class="s1" id="my-projects">
     <div class="main-container">
         <h3 style="text-align: center;">Project Section</h3>
+        <!-- Modal section for add project-->
+        {% if user.is_authenticated %}
+        <a href="#" data-toggle="modal" data-target="#addProject">
+            <h5 style="text-align: center;">AddProject</h5>
+        </a>
+
+        {% endif %}
+
         <div class="post-wrapper">
             {% for p in projects %}
             <div>
                 <div class="post">
-                    <a href="{% url 'project' p.id %}"><img class="thumbnail" src="{{p.image.url}}"></a>
+                    <a href="{% url 'project' p.id %}"><img class="thumbnail" src="{{p.mainimage.url}}"></a>
                     <div class="post-preview" style="line-height: 1.8;">
                         <a href="{% url 'project' p.id %}">
                             <h4 class="post-title" style="text-align: center;">{{p.title}}</h6>
@@ -163,6 +171,14 @@
 <section class="s1" id="my-post">
     <div class="main-container">
         <h3 style="text-align: center;">Blog Section</h3>
+        <!-- Modal section for add Blog-->
+        {% if user.is_authenticated %}
+        <a href="#" data-toggle="modal" data-target="#addBlog">
+            <h5 style="text-align: center;">AddBlog</h5>
+        </a><br>
+
+        {% endif %}
+
         <div class="post-wrapper">
             {% for b in probook %}
             <div>
@@ -171,20 +187,21 @@
                         <div class="post-preview">
                             <h6 class="post-title">{{b.headline}}</h6>
                             <p class="post-intro">{{b.sub_headline|truncatewords:5}}</p>
-                                <h6>Tags:{% for tag in b.tags.all %}
-                                    <span class="tag">{{tag}}</span>
-                                    {% endfor %}</a></h6>
-                            </h6>
-                            <h5 style="text-align: center;"><a href="{% url 'blog' b.id %}">View Post: </a></h5>
-                        </div>
-                    </a>
+                            <h6>Tags:{% for tag in b.tags.all %}
+                                <span class="tag">{{tag}}</span>
+                                {% endfor %}
+                    </a></h6>
+                    </h6>
+                    <h5 style="text-align: center;"><a href="{% url 'blog' b.id %}">View Post: </a></h5>
                 </div>
+                </a>
             </div>
-            {% endfor %}
         </div>
-        <a href="{% url 'blogs_all' %}">
-            <p style="text-align:center;">View all Blogs</p>
-        </a>
+        {% endfor %}
+    </div>
+    <a href="{% url 'blogs_all' %}">
+        <p style="text-align:center;">View all Blogs</p>
+    </a>
     </div>
 </section>
 <!--End of Blog section-->
@@ -246,6 +263,61 @@
     </div>
 </section>
 <!--End of Contact me section-->
+
+
+<!-- Modal Button for Project add If user is authenticated activates project adding buttons -->
+<!-- Form should be sent to this page div id should be same as the modals data-target -->
+<div class="modal fade" id="addProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form method="post" action="{% url 'addProject' %}" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="foraddingproject">ADD PROJECT</h4>
+                </div>
+                <div class="modal-body">
+                    {{ProjectCreationForm}}<br><br>
+                    <label>Extra Image</label>
+                    <input required name="images" type="file" multiple class="form-control-file">
+                    {% csrf_token %}
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Button for Blog add If user is authenticated activates Blog adding buttons -->
+<!-- Form should be sent to this page div id should be same as the modals data-target -->
+<div class="modal fade" id="addBlog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form method="post" action="{% url 'addBlog' %}" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="foraddingproject">ADD BLOG</h4>
+                </div>
+                <div class="modal-body">
+                    {% for p in BlogCreationForm %}
+                    <label>{{p.label}}:</label>
+                    {{p}}<br>
+                    {% endfor %}
+                    {% csrf_token %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript">
     let static = "{% static 'css' %}"
