@@ -8,11 +8,11 @@ from django.contrib.auth import authenticate, login,logout
 def home(request):
     blog = Blog.objects.filter()[0:3] # sort according to last come firt server lifo order
     project = Project.objects.filter()[0:3]
-    bblogs = Blog.objects.all()
+    # allblogs = Blog.objects.all()
     context = {
         'projects':project,
         'probook':blog,
-        'bblogs':bblogs,
+        # 'bblogs':allblogs,
         'BlogCreationForm': BlogForm(),
         'ProjectCreationForm':ProjectForm(),
         'ProjectImageForm':ProjectImgForm(),
@@ -22,8 +22,10 @@ def home(request):
 # particular project section
 def project(request,x):
     project = Project.objects.get(id=x)
+    prjimage = Projectimage.objects.filter(relatedProject_id=project.id)
     context = {
-        'project':project
+        'project':project,
+        'prjimage':prjimage,
     }
     return render(request,'project.html',context)
 
@@ -96,12 +98,8 @@ def addProject(request):
         if form.is_valid:
             data = form.save(commit=False)
             data.user_id = request.user.id
-            print('data.user.id',data.user_id)
-            print('request.user.id',request.user.id)
             data.save()
             for img in images:
-                print('Projectimage.relatedProject_id',Projectimage.relatedProject_id)
-                # print("Project.id",data.id)
                 photo = Projectimage.objects.create(
                     image=img,
                     relatedProject_id=data.id
