@@ -29,7 +29,11 @@ urlpatterns = [
     path('blogs_all', views.blogs_all, name='blogs_all'), #list of all Blogs
     path('signin', views.signin, name='signin'), # login section
     path('addBlog', views.addBlog, name='addBlog'), #Blog post adding section
+    path('blog_edit/<int:x>', views.blog_edit, name='blog_edit'), #blog edit section
+    path('blog_delete/<int:x>',views.blog_delete,name='blog_delete'), # blog delete section
     path('addProject', views.addProject, name='addProject'), #Project adding section
+    path('project_edit/<int:x>', views.project_edit, name='project_edit'), # project edit section
+    path('project_delete/<int:x>',views.project_delete,name='project_delete'), # Project delete section
 
     path('signout', views.signout, name='signout'),  # url for logout function
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

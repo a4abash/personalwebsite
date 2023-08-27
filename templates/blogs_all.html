@@ -22,7 +22,13 @@
                                 <span class="tag">{{tag}}</span>
                                 {% endfor %}
                                 
-                        </a></h6>
+                        </a></h6><hr>
+                        {% if user.is_authenticated %}
+                        <h5><a href="{% url 'blog_edit' p.id %}">Edit</a><br><br>
+                            <a href="{% url 'blog_delete' p.id %}">Delete</a>
+                        </h5>
+                        {% endif %}
+
                         </ul>
                         <h5 style="text-align: center;"><a href="{% url 'blog' p.id %}">View Post</h5>
                         </a>

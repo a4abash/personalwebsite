@@ -88,6 +88,24 @@ def addBlog(request):
             print('not stored')
             return render(request, 'home.html', {'postCreationForm': form})
 
+# Blog delete section
+def blog_delete(request,x):
+    p = Blog.objects.get(id=x)
+    p.delete()
+    return redirect('blogs_all')
+
+#Blog edit section
+def blog_edit(request,x):
+    blog = Blog.objects.get(id=x)
+    form = BlogForm(request.POST or None, instance=blog)
+    if form.is_valid():
+        form.save()
+        return redirect('blogs_all')
+    context = {
+        'form':form,
+    }
+    return render (request,'blog_edit.html',context)
+
 # Project adding section
 def addProject(request):
     if request.method == "GET":
@@ -109,6 +127,23 @@ def addProject(request):
             print('not stored')
             return render(request, 'home.html', {'projectCreationForm': form}) 
 
+# Project edit section
+def project_edit(request,x):
+    project = Project.objects.get(id=x)
+    form = ProjectForm(request.POST or None, instance=project)
+    if form.is_valid():
+        form.save()
+        return redirect('allprojects')
+    context = {
+        'form': form,
+    }
+    return render(request, 'project_edit.html',context)
+
+#Project delete section
+def project_delete(request,x):
+    p = Project.objects.get(id=x)
+    p.delete()
+    return redirect('allprojects')
 
 # for signout
 def signout(request):

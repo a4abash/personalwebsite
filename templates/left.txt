@@ -1,8 +1,8 @@
 unable to add tags in blog section
 
 
-
-Blog and Project edit delete part remaining
+Project edit section not working properly
+Blog edit section images not updating
 
 For vlogs section website should automatically import recently uploaded videos
 
