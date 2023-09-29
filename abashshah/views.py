@@ -130,7 +130,7 @@ def addProject(request):
 # Project edit section
 def project_edit(request,x):
     project = Project.objects.get(id=x)
-    form = ProjectForm(request.POST or None, instance=project)
+    form = ProjectForm(request.POST, request.FILES or None, instance=project)
     if form.is_valid():
         form.save()
         return redirect('allprojects')

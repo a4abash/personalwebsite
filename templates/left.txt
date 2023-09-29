@@ -8,3 +8,7 @@ For vlogs section website should automatically import recently uploaded videos
 
 
 Mail section remaining
+
+line no 133 
+ form = ProjectForm(request.POST, request.FILES or None, instance=project)
+ request.FILES rakhda purai form empty bhayera aayo
